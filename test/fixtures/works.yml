@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  subject: MyString
+  class_date: 2025-08-27
+  status: 1
+  classroom: MyString
+  period: 1
+  start_semester: 1
+  end_semester: 1
+
+two:
+  user: two
+  subject: MyString
+  class_date: 2025-08-27
+  status: 1
+  classroom: MyString
+  period: 1
+  start_semester: 1
+  end_semester: 1
