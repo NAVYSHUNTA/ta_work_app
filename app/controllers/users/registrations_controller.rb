@@ -10,9 +10,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    build_resource(sign_up_params)
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      sign_out resource
+
+      redirect_to new_user_session_path, status: :see_other
+    else
+      clean_up_passwords resource
+      set_minumum_password_length
+      respond_with resource
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -52,11 +63,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    works_path
+    new_user_session_path
   end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    works_path
+    new_user_session_path
   end
 end

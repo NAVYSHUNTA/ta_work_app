@@ -1,0 +1,18 @@
+<h1>勤務情報の一覧</h1>
+
+<div>
+  <ul>
+    <% @works.each do |work| %>
+      <li>科目名：<%= work.subject %></li>
+      <li>授業日：<%= work.class_date %></li>
+      <li>状態：<%= work.status_jp %></li>
+      <li>教室：<%= work.classroom %></li>
+      <li>時限：<%= work.period %></li>
+      <li>開講期間：<%= work.start_semester_str %> から <%= work.end_semester_str %> まで</li>
+      <li><%= link_to "勤務情報を編集", edit_work_path(work) %></li>
+      <li><%= link_to "勤務情報を削除", work, method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to "新規作成", new_work_path %>

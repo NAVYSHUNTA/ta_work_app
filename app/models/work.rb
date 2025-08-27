@@ -49,7 +49,7 @@ class Work < ApplicationRecord
   def semester_range_valid
     return if start_semester.blank? || end_semester.blank?
 
-    if start_semester > end_semester
+    if Work.start_semesters[start_semester] > Work.end_semesters[end_semester]
       errors.add(:end_semester, "は開始学期より前にできません")
     end
   end
