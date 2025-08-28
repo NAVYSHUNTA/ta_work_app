@@ -3,7 +3,7 @@ class WorksController < ApplicationController
   before_action :set_work, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @works = current_user.works.order(:class_date, :period)
+    @works = current_user.works.order(:class_date, :start_period)
   end
 
   def show
@@ -45,6 +45,6 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    params.require(:work).permit(:subject, :class_date, :status, :classroom, :period, :start_semester, :end_semester)
+    params.require(:work).permit(:subject, :class_date, :status, :classroom, :start_period, :end_period, :start_semester, :end_semester)
   end
 end

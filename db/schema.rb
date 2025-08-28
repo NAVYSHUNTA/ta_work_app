@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_27_064827) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_28_155619) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -33,11 +33,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_27_064827) do
     t.date "class_date", null: false
     t.integer "status", default: 0, null: false
     t.string "classroom", null: false
-    t.integer "period", null: false
+    t.integer "start_period", null: false
     t.integer "start_semester", null: false
     t.integer "end_semester", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "end_period", null: false
     t.index ["user_id"], name: "index_works_on_user_id"
   end
 

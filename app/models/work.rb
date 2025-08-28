@@ -6,8 +6,8 @@ class Work < ApplicationRecord
   enum :start_semester, { start_1Q: 1, start_2Q: 2, start_3Q: 3, start_4Q: 4 }
   enum :end_semester,   { end_1Q: 1, end_2Q: 2, end_3Q: 3, end_4Q: 4 }
 
-  validates :subject, :class_date, :status, :classroom, :period, :start_semester, :end_semester, presence: true
-  validate :semester_range_valid
+  validates :subject, :class_date, :status, :classroom, :start_period, :end_period, :start_semester, :end_semester, presence: true
+  validate :semester_range_valid, :period_range_valid
 
   STATUS_LABELS = {
     not_started: "未着手",
@@ -51,6 +51,14 @@ class Work < ApplicationRecord
 
     if Work.start_semesters[start_semester] > Work.end_semesters[end_semester]
       errors.add(:end_semester, "は開始学期より前にできません")
+    end
+  end
+
+  def period_range_valid
+    return if start_period.blank? || end_period.blank?
+
+    if start_period > end_period
+      errors.add(:end_period, "は開始時限より前にできません")
     end
   end
 end
