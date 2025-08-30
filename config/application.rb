@@ -23,5 +23,10 @@ module TaWorkApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.i18n.default_locale = :ja
+
+    # バリデーションのエラーで入力欄のレイアウトが崩れるのを防ぐ
+    # 参考 URL：https://stackoverflow.com/questions/5267998/rails-3-field-with-errors-wrapper-changes-the-page-appearance-how-to-avoid-t
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

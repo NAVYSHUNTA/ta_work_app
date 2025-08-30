@@ -18,7 +18,7 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to works_path, notice: "勤務情報を登録しました"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class WorksController < ApplicationController
     if @work.update(work_params)
       redirect_to works_path, notice: "勤務情報を更新しました"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

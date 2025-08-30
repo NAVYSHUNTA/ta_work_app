@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      work: 勤務情報
+    attributes:
+      work:
+        subject: 科目名
+        class_date: 授業日
+        classroom: 教室
+        start_period: 開始時限
+        end_period: 終了時限
+        start_semester: 開始学期
+        end_semester: 終了学期
+        status: 状態
+  errors:
+    messages:
+      blank: "を入力してください"
