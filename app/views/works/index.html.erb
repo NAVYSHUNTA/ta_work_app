@@ -3,16 +3,27 @@
 <%= link_to "新規作成", new_work_path %>
 
 <div>
-  <ul>
-    <% @works.each do |work| %>
+  <% @works.each do |work| %>
+    <ul class="item">
       <li>科目名：<%= work.subject %></li>
       <li>授業日：<%= work.class_date %></li>
       <li>状態：<%= work.status_jp %></li>
-      <li>教室：<%= work.classroom %></li>
-      <li>時限：<%= work.start_period %> 限から <%= work.end_period %> 限まで</li>
-      <li>開講期間：<%= work.start_semester_str %> から <%= work.end_semester_str %> まで</li>
+      <li>場所：<%= work.classroom %></li>
+
+      <% if work.start_period == work.end_period %>
+        <li>時限：<%= work.start_period %> 限</li>
+      <% else %>
+        <li>時限：<%= work.start_period %> 限から <%= work.end_period %> 限まで</li>
+      <% end %>
+
+      <% if work.start_semester_str == work.end_semester_str %>
+        <li>開講期間：<%= work.start_semester_str %></li>
+      <% else %>
+        <li>開講期間：<%= work.start_semester_str %> から <%= work.end_semester_str %> まで</li>
+      <% end %>
+
       <li><%= link_to "勤務情報を編集", edit_work_path(work) %></li>
       <li><%= link_to "勤務情報を削除", work, method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
-    <% end %>
-  </ul>
+    </ul>
+  <% end %>
 </div>
