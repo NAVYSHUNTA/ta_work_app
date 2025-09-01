@@ -35,7 +35,7 @@ class WorksController < ApplicationController
 
   def destroy
     @work.destroy
-    redirect_to work_path, notice: "勤務情報を削除しました"
+    redirect_to works_path, notice: "勤務情報を削除しました"
   end
 
   private

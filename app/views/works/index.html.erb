@@ -23,7 +23,7 @@
       <% end %>
 
       <li><%= link_to "勤務情報を編集", edit_work_path(work) %></li>
-      <li><%= link_to "勤務情報を削除", work, method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+      <li><%= link_to "勤務情報を削除", work_path(work), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></li>
     </ul>
   <% end %>
 </div>
