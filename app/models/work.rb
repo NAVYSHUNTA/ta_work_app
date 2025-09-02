@@ -44,6 +44,28 @@ class Work < ApplicationRecord
     SEMESTER_LABELS[end_semester.to_sym]
   end
 
+  def period_range
+    if start_period == end_period
+      "#{start_period} 限"
+    else
+      "#{start_period} 限から #{end_period} 限まで"
+    end
+  end
+
+  def semester_period
+    if start_semester_str == end_semester_str
+      start_semester_str
+    elsif start_semester_str == "1Q" && end_semester_str == "4Q"
+      "通年"
+    elsif start_semester_str == "1Q" && end_semester_str == "2Q"
+      "前期"
+    elsif start_semester_str == "3Q" && end_semester_str == "4Q"
+      "後期"
+    else
+      "#{start_semester_str} から #{end_semester_str} まで"
+    end
+  end
+
   private
 
   def semester_range_valid
