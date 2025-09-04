@@ -2,6 +2,12 @@
 
 <%= link_to "新規作成", new_work_path %>
 
+<% if notice %>
+  <div id="notice" class="item">
+    <%= notice %>
+  </div>
+<% end %>
+
 <div>
   <% @works.each do |work| %>
     <ul class="item">

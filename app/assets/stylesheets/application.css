@@ -12,9 +12,6 @@ body {
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.45);
 }
 
-#error_explanation {
-    color: white;
-    background-color: #666;
-    border-left: none;
-    border-left: 1em solid #e33a35;
+#error_explanation, #notice {
+    border-left: 1em solid deepskyblue;
 }
