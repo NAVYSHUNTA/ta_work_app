@@ -22,7 +22,14 @@
       <li>
         <div class="field">
           <%= f.label :class_date, "授業日" %>
-          <%= f.date_field :class_date %>
+          <%= f.date_field :class_date, value: f.object.class_date || Date.today %>
+        </div>
+      </li>
+
+      <li>
+        <div class="field">
+          <%= f.label :classroom, "場所" %>
+          <%= f.text_field :classroom %>
         </div>
       </li>
 
@@ -30,45 +37,53 @@
         <% unless @work.new_record? %>
           <div class="field">
             <%= f.label :status, "状態" %>
-            <%= f.select :status, Work.statuses.keys.map { |k| [Work::STATUS_LABELS[k.to_sym], k] } %>
+            <% Work.statuses.keys.each do |k| %>
+              <%= f.radio_button :status, k %>
+              <%= f.label :status, Work::STATUS_LABELS[k.to_sym], value: k, class: "ghost-btn" %>
+            <% end %>
           </div>
         <% end %>
       </li>
 
       <li>
         <div class="field">
-          <%= f.label :classroom, "教室" %>
-          <%= f.text_field :classroom %>
-        </div>
-      </li>
-
-      <li>
-        <div class="field">
           <%= f.label :start_period, "開始時限" %>
-          <%= f.select :start_period, (1..6).map { |n| [n, n] } %>
+          <% (1..6).each do |n| %>
+            <%= f.radio_button :start_period, n %>
+            <%= f.label :start_period, n, value: n, class: "ghost-btn" %>
+          <% end %>
         </div>
       </li>
 
       <li>
         <div class="field">
           <%= f.label :end_period, "終了時限" %>
-          <%= f.select :end_period, (1..6).map { |n| [n, n] } %>
+          <% (1..6).each do |n| %>
+            <%= f.radio_button :end_period, n %>
+            <%= f.label :end_period, n, value: n, class: "ghost-btn" %>
+          <% end %>
         </div>
       </li>
 
       <li>
         <div class="field">
           <%= f.label :start_semester, "開始学期" %>
-          <%= f.select :start_semester, Work.start_semesters.keys.sort_by { |k| Work.start_semesters[k] }.map { |k| [Work::SEMESTER_LABELS[k.to_sym], k] } %>
+          <% Work.start_semesters.keys.sort_by { |k| Work.start_semesters[k] }.each do |k| %>
+            <%= f.radio_button :start_semester, k %>
+            <%= f.label :start_semester, Work::SEMESTER_LABELS[k.to_sym], value: k, class: "ghost-btn" %>
+          <% end %>
         </div>
       </li>
 
-      </li>
+      <li>
         <div class="field">
           <%= f.label :end_semester, "終了学期" %>
-          <%= f.select :end_semester, Work.end_semesters.keys.sort_by { |k| Work.end_semesters[k] }.map { |k| [Work::SEMESTER_LABELS[k.to_sym], k] } %>
+          <% Work.end_semesters.keys.sort_by { |k| Work.end_semesters[k] }.each do |k| %>
+            <%= f.radio_button :end_semester, k %>
+            <%= f.label :end_semester, Work::SEMESTER_LABELS[k.to_sym], value: k, class: "ghost-btn" %>
+          <% end %>
         </div>
-      <li>
+      </li>
     <ul>
 
     <div class="actions btn-group">

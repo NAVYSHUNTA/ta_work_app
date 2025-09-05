@@ -49,5 +49,19 @@ ul {
 
 .ghost-btn:hover {
     background-color: #e33a35;
-    color: #fff;
+    color: white;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #e33a35;
+    color: white;
+    border-radius: 16px;
+}
+
+.field {
+    margin: 0.5em 0;
 }
