@@ -11,50 +11,68 @@
 
 <div class="item">
   <%= form_with model: @work, local: true do |f| %>
-    <div class="field">
-      <%= f.label :subject, "科目名" %>
-      <%= f.text_field :subject %>
-    </div>
+    <ul>
+      <li>
+        <div class="field">
+          <%= f.label :subject, "科目名" %>
+          <%= f.text_field :subject %>
+        </div>
+      </li>
 
-    <div class="field">
-      <%= f.label :class_date, "授業日" %>
-      <%= f.date_field :class_date %>
-    </div>
+      <li>
+        <div class="field">
+          <%= f.label :class_date, "授業日" %>
+          <%= f.date_field :class_date %>
+        </div>
+      </li>
 
-    <% unless @work.new_record? %>
-      <div class="field">
-        <%= f.label :status, "状態" %>
-        <%= f.select :status, Work.statuses.keys.map { |k| [Work::STATUS_LABELS[k.to_sym], k] } %>
-      </div>
-    <% end %>
+      <li>
+        <% unless @work.new_record? %>
+          <div class="field">
+            <%= f.label :status, "状態" %>
+            <%= f.select :status, Work.statuses.keys.map { |k| [Work::STATUS_LABELS[k.to_sym], k] } %>
+          </div>
+        <% end %>
+      </li>
 
-    <div class="field">
-      <%= f.label :classroom, "教室" %>
-      <%= f.text_field :classroom %>
-    </div>
+      <li>
+        <div class="field">
+          <%= f.label :classroom, "教室" %>
+          <%= f.text_field :classroom %>
+        </div>
+      </li>
 
-    <div class="field">
-      <%= f.label :start_period, "開始時限" %>
-      <%= f.select :start_period, (1..6).map { |n| [n, n] } %>
-    </div>
+      <li>
+        <div class="field">
+          <%= f.label :start_period, "開始時限" %>
+          <%= f.select :start_period, (1..6).map { |n| [n, n] } %>
+        </div>
+      </li>
 
-    <div class="field">
-      <%= f.label :end_period, "終了時限" %>
-      <%= f.select :end_period, (1..6).map { |n| [n, n] } %>
-    </div>
+      <li>
+        <div class="field">
+          <%= f.label :end_period, "終了時限" %>
+          <%= f.select :end_period, (1..6).map { |n| [n, n] } %>
+        </div>
+      </li>
 
-    <div class="field">
-      <%= f.label :start_semester, "開始学期" %>
-      <%= f.select :start_semester, Work.start_semesters.keys.sort_by { |k| Work.start_semesters[k] }.map { |k| [Work::SEMESTER_LABELS[k.to_sym], k] } %>
-    </div>
+      <li>
+        <div class="field">
+          <%= f.label :start_semester, "開始学期" %>
+          <%= f.select :start_semester, Work.start_semesters.keys.sort_by { |k| Work.start_semesters[k] }.map { |k| [Work::SEMESTER_LABELS[k.to_sym], k] } %>
+        </div>
+      </li>
 
-    <div class="field">
-      <%= f.label :end_semester, "終了学期" %>
-      <%= f.select :end_semester, Work.end_semesters.keys.sort_by { |k| Work.end_semesters[k] }.map { |k| [Work::SEMESTER_LABELS[k.to_sym], k] } %>
-    </div>
+      </li>
+        <div class="field">
+          <%= f.label :end_semester, "終了学期" %>
+          <%= f.select :end_semester, Work.end_semesters.keys.sort_by { |k| Work.end_semesters[k] }.map { |k| [Work::SEMESTER_LABELS[k.to_sym], k] } %>
+        </div>
+      <li>
+    <ul>
 
-    <div class="actions">
-      <%= f.submit @work.new_record? ? "登録する" : "更新する" %>
+    <div class="actions btn-group">
+      <%= f.submit @work.new_record? ? "登録する" : "更新する", class: "ghost-btn" %>
     </div>
   <% end %>
 </div>

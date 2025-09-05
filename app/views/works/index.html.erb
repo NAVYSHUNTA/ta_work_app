@@ -1,6 +1,6 @@
 <h1>勤務情報の一覧</h1>
 
-<%= link_to "新規作成", new_work_path %>
+<%= link_to "新規作成", new_work_path, class: "ghost-btn btn-group" %>
 
 <% if notice %>
   <div id="notice" class="item">
@@ -10,15 +10,19 @@
 
 <div>
   <% @works.each do |work| %>
-    <ul class="item">
-      <li>科目名：<%= work.subject %></li>
-      <li>授業日：<%= work.class_date %></li>
-      <li>状態：<%= work.status_jp %></li>
-      <li>場所：<%= work.classroom %></li>
-      <li>時限：<%= work.period_range %></li>
-      <li>開講期間：<%= work.semester_period %></li>
-      <li><%= link_to "勤務情報を編集", edit_work_path(work) %></li>
-      <li><%= link_to "勤務情報を削除", work_path(work), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></li>
-    </ul>
+    <div class="item">
+      <ul>
+        <li>科目名：<%= work.subject %></li>
+        <li>授業日：<%= work.class_date %></li>
+        <li>状態：<%= work.status_jp %></li>
+        <li>場所：<%= work.classroom %></li>
+        <li>時限：<%= work.period_range %></li>
+        <li>開講期間：<%= work.semester_period %></li>
+      </ul>
+      <div class="btn-group">
+        <%= link_to "勤務情報を編集", edit_work_path(work), class: "ghost-btn" %>
+        <%= link_to "勤務情報を削除", work_path(work), class: "ghost-btn", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+      </div>
+    </div>
   <% end %>
 </div>

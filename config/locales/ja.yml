@@ -15,3 +15,6 @@ ja:
   errors:
     messages:
       blank: "を入力してください"
+  devise:
+    sessions:
+      signed_in: "ログインしました"
