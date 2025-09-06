@@ -25,6 +25,11 @@ ul {
     gap: 8px;
 }
 
+#create-item-btn {
+    position: relative;
+    left: calc(100% - 120px);
+}
+
 #error_explanation, #notice {
     border-left: 1em solid deepskyblue;
     padding: 0.5em 1em;
@@ -64,4 +69,30 @@ input[type="radio"]:checked + label {
 
 .field {
     margin: 0.5em 0;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+    background: linear-gradient(90deg, rgb(4, 126, 174), rgb(0, 255, 255));
+}
+
+header li {
+    list-style: none;
+    font-size: 20px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+header li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-shadow:
+    1px 1px 3px rgba(0,0,0,0.3),
+    -1px 1px 3px rgba(0,0,0,0.3),
+    1px -1px 3px rgba(0,0,0,0.3),
+    -1px -1px 3px rgba(0,0,0,0.3);
 }
