@@ -23,6 +23,10 @@
   </head>
 
   <header>
+    <div class="page-title">
+      <%= yield(:page_title) %>
+    </div>
+
     <ul class="header-nav">
       <% if user_signed_in? %>
         <li>
