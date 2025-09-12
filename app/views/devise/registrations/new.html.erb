@@ -1,9 +1,22 @@
 <% content_for :page_title, "アカウント管理" %>
 
+<%= render "devise/shared/error_messages", resource: resource %>
+
+<% if notice %>
+  <div id="notice" class="item">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div id="alert" class="item">
+    <%= alert %>
+  </div>
+<% end %>
+
 <h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :name, "名前" %><br />

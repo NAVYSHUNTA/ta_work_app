@@ -1,8 +1,13 @@
 ja:
   activerecord:
     models:
+      user: ユーザー
       work: 勤務情報
     attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
       work:
         subject: 科目名
         class_date: 授業日
@@ -15,6 +20,7 @@ ja:
   errors:
     messages:
       blank: "を入力してください"
+      not_saved: "アカウント登録に失敗しました"
   devise:
     sessions:
       signed_in: "ログインしました"

@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to new_user_session_path, status: :see_other
     else
       clean_up_passwords resource
-      set_minumum_password_length
+      set_minimum_password_length
       respond_with resource
     end
   end
