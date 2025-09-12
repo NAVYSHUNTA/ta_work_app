@@ -5,7 +5,9 @@ ja:
       work: 勤務情報
     attributes:
       user:
+        username: ユーザー名
         email: メールアドレス
+        student_number: 学籍番号
         password: パスワード
         password_confirmation: パスワード（確認用）
       work:
@@ -21,7 +23,15 @@ ja:
     messages:
       blank: "を入力してください"
       not_saved: "アカウント登録に失敗しました"
+      not_found: "が見つかりません"
   devise:
+    passwords:
+      send_instructions: "パスワード再設定のメールを送信しました"
+      updated: "パスワードが変更されました"
+      updated_not_active: "パスワードが変更されました"
+      expired: "パスワード再設定の有効期限が切れています。もう一度やり直してください。"
+      user:
+        send_instructions: "パスワード再設定のメールを送信しました"
     sessions:
       signed_in: "ログインしました"
       signed_out: "ログアウトしました"

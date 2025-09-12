@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
+    resource.student_number = resource.email.split("@").first[1..].upcase
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -53,12 +54,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :name ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [ :username, :email ])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [ :name ])
+    devise_parameter_sanitizer.permit(:account_update, keys: [ :username, :email ])
   end
 
   # The path used after sign up.
