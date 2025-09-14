@@ -15,9 +15,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.student_number = resource.email.split("@").first[1..].upcase
     resource.save
     yield resource if block_given?
-    if resource.persisted?
-      sign_out resource
 
+    if resource.persisted?
+      flash[:notice] = "アカウント登録が完了しました"
+      sign_out resource if resource.active_for_authentication?
       redirect_to new_user_session_path, status: :see_other
     else
       clean_up_passwords resource

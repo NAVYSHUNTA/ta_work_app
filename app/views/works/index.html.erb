@@ -9,6 +9,9 @@
 <% end %>
 
 <div>
+  <% if @works.empty? %>
+    <p>勤務情報はまだ登録されていません。</p>
+  <% end %>
   <% @works.each do |work| %>
     <div class="item">
       <ul>
