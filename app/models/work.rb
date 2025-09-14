@@ -1,5 +1,7 @@
 class Work < ApplicationRecord
   belongs_to :user
+  
+  attr_accessor :total_weeks, :second_class_date
 
   # 未着手: 0, 出勤: 1, 欠勤: 2, 休講: 3, 補講: 4
   enum :status, { not_started: 0, present: 1, absent: 2, cancelled: 3, makeup: 4 }

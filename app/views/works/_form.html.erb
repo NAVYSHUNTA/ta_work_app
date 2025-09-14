@@ -22,9 +22,25 @@
       <li>
         <div class="field">
           <%= f.label :class_date, "授業日" %>
-          <%= f.date_field :class_date, value: f.object.class_date || Date.today %>
+          <%= f.date_field :class_date %>
         </div>
       </li>
+
+      <% if @work.new_record? %>
+      <li>
+        <div class="field">
+          <%= f.label :second_class_date, "授業日" %>
+          <%= f.date_field :second_class_date %>（週 2 回の場合のみ入力）
+        </div>
+      </li>
+
+      <li>
+        <div class="field">
+          <%= f.label :total_weeks, "実施回数" %>
+          <%= f.number_field :total_weeks, min: 1, max: 24 %> 週間
+        </div>
+      </li>
+      <% end %>
 
       <li>
         <div class="field">

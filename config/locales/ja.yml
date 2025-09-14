@@ -36,9 +36,10 @@ ja:
       signed_in: "ログインしました"
       signed_out: "ログアウトしました"
     failure:
+      unauthenticated: "ログインしてください"
       user:
         signed_out: "ログアウトしました"
-        invalid: "メールアドレスまたはパスワードが違います"
-        not_found_in_database: "メールアドレスまたはパスワードが違います"
+        invalid: "学籍番号またはパスワードが違います"
+        not_found_in_database: "学籍番号またはパスワードが違います"
       invalid: "無効なアカウントです"
       not_found_in_database: "無効なアカウントです"
