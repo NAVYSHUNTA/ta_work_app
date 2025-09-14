@@ -18,7 +18,7 @@ class WorksController < ApplicationController
 
     if @work.valid?
       total_weeks = work_params[:total_weeks].to_i
-      start_dates = [work_params[:class_date], work_params[:second_class_date]].reject(&:blank?).map(&:to_date).uniq
+      start_dates = [ work_params[:class_date], work_params[:second_class_date] ].reject(&:blank?).map(&:to_date).uniq
 
       @works = []
 
