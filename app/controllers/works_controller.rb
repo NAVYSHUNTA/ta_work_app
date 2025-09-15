@@ -60,6 +60,6 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    params.require(:work).permit(:subject, :class_date, :second_class_date, :total_weeks, :status, :classroom, :start_period, :end_period, :start_semester, :end_semester)
+    params.require(:work).permit(:subject, :class_date, :second_class_date, :total_weeks, :status, :classroom, :start_period, :end_period, :start_semester, :end_semester, :content)
   end
 end

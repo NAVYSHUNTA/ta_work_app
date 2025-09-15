@@ -100,6 +100,15 @@
           <% end %>
         </div>
       </li>
+
+      <% unless @work.new_record? %>
+        <li>
+          <div class="field">
+            <%= f.label :content, "業務内容" %>
+            <%= f.text_area :content, rows: 3 %>
+          </div>
+        </li>
+      <% end %>
     <ul>
 
     <div class="actions btn-group">

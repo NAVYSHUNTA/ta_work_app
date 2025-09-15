@@ -77,6 +77,11 @@ input[type="radio"]:checked + label {
     margin: 0.5em 0;
 }
 
+.field textarea {
+    position: relative;
+    top: 15px;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
