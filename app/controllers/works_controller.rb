@@ -3,7 +3,10 @@ class WorksController < ApplicationController
   before_action :set_work, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @works = current_user.works.order(:class_date, :start_period)
+    @works = current_user
+      .works
+      .where("class_date >= ?", Date.today)
+      .order(:class_date, :start_period)
   end
 
   def show
