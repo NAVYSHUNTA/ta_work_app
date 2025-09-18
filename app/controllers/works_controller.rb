@@ -13,7 +13,7 @@ class WorksController < ApplicationController
   end
 
   def new
-    @work = current_user.works.new(class_date: Date.today, second_class_date: Date.today, total_weeks: 7)
+    @work = current_user.works.new(class_date: Date.today, total_weeks: 7)
   end
 
   def create
