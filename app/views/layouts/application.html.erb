@@ -27,6 +27,11 @@
       <%= yield(:page_title) %>
     </div>
 
+    <ul class="header-user-info">
+      <li><%= current_user.student_number %></li>
+      <li><%= current_user.username %></li>
+    </ul>
+
     <ul class="header-nav">
       <% if user_signed_in? %>
         <li>
