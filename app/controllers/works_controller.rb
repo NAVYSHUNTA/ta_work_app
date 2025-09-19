@@ -44,7 +44,16 @@ class WorksController < ApplicationController
   end
 
   def update
+    apply_to_all_note = params[:work][:apply_to_all_note] == "1"
+
     if @work.update(work_params)
+      if apply_to_all_note
+        current_user.works
+          .where(subject: @work.subject)
+          .where.not(id: @work.id)
+          .update_all(note: @work.note)
+      end
+
       redirect_to works_path, notice: "勤務情報を更新しました"
     else
       render :edit, status: :unprocessable_entity
@@ -63,6 +72,21 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    params.require(:work).permit(:subject, :class_date, :second_class_date, :total_weeks, :status, :classroom, :start_period, :end_period, :start_semester, :end_semester, :content)
+    params
+      .require(:work)
+      .permit(
+        :subject,
+        :class_date,
+        :second_class_date,
+        :total_weeks,
+        :status,
+        :classroom,
+        :start_period,
+        :end_period,
+        :start_semester,
+        :end_semester,
+        :content,
+        :note
+      )
   end
 end

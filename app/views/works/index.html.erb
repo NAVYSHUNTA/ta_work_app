@@ -22,6 +22,7 @@
         <li>時限：<%= work.period_range %></li>
         <li>開講期間：<%= work.semester_period %></li>
         <li>業務内容：<%= display_content(work.content) %></li>
+        <li>補足事項：<%= display_note(work.note) %></li>
       </ul>
       <div class="btn-group">
         <%= link_to "勤務情報を編集", edit_work_path(work), class: "ghost-btn" %>

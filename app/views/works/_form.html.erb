@@ -109,6 +109,22 @@
           </div>
         </li>
       <% end %>
+
+      <li>
+        <div class="field">
+          <%= f.label :note, "補足事項" %>
+          <%= f.text_area :note, rows: 3 %>
+        </div>
+      </li>
+
+      <% unless @work.new_record? %>
+        <li>
+          <div class="field">
+            <%= f.check_box :apply_to_all_note, {}, "1", "0" %>
+            <%= f.label :apply_to_all_note, "補足事項を本科目の他日程にも反映する" %>
+          </div>
+        </li>
+      <% end %>
     <ul>
 
     <div class="actions btn-group">
