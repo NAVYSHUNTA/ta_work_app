@@ -15,7 +15,7 @@
       <li>
         <div class="field">
           <%= f.label :subject, "科目名" %>
-          <%= f.text_field :subject %>
+          <%= f.text_field :subject, id: "subject-textarea" %>
         </div>
       </li>
 
@@ -105,7 +105,7 @@
         <li>
           <div class="field">
             <%= f.label :content, "業務内容" %>
-            <%= f.text_area :content, rows: 3 %>
+            <%= f.text_area :content, rows: 3, class: "wide-textarea" %>
           </div>
         </li>
       <% end %>
@@ -113,7 +113,7 @@
       <li>
         <div class="field">
           <%= f.label :note, "補足事項" %>
-          <%= f.text_area :note, rows: 3 %>
+          <%= f.text_area :note, rows: 3, class: "wide-textarea" %>
         </div>
       </li>
 
