@@ -10,6 +10,7 @@ class Work < ApplicationRecord
 
   validates :subject, :class_date, :status, :classroom, :start_period, :end_period, :start_semester, :end_semester, presence: true
   validate :semester_range_valid, :period_range_valid
+  validate :different_weekdays_for_class_dates, on: :create
 
   STATUS_LABELS = {
     not_started: "未着手",
@@ -83,6 +84,21 @@ class Work < ApplicationRecord
 
     if start_period > end_period
       errors.add(:end_period, "は開始時限より前にできません")
+    end
+  end
+
+  def different_weekdays_for_class_dates
+    return if class_date.blank? || second_class_date.blank?
+
+    begin
+      date = class_date.to_date
+      second_date = second_class_date.to_date
+    rescue ArgumentError
+      return
+    end
+
+    if date.wday == second_date.wday
+      errors.add(:base, "授業日が同じ曜日になっています（週 2 回の場合は相異なる曜日を選んでください）")
     end
   end
 end
