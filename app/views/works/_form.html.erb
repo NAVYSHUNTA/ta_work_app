@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<div class="item">
+<div class="item <%= @work.status %>">
   <%= form_with model: @work, local: true do |f| %>
     <ul>
       <li>

@@ -2,13 +2,21 @@ body {
     color: #333;
 }
 
-.item {
+.item, .item.not_started {
     position: relative;
     margin: 1em 0;
     padding: 0.5em 0;
     background-color: #eee;
     border-left: 1em solid #e33a35;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.45);
+}
+
+.item.present {
+    border-left: 1em solid #dd0;
+}
+
+.item.absent, .item.cancelled {
+    border-left: 1em solid gray;
 }
 
 ul {

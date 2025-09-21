@@ -13,7 +13,7 @@
     <p>勤務情報はまだ登録されていません。</p>
   <% end %>
   <% @works.each do |work| %>
-    <div class="item">
+    <div class="item <%= work.status %>">
       <ul>
         <li>科目名：<%= work.subject %></li>
         <li>授業日：<%= work.class_date %></li>
