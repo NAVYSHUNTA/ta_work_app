@@ -16,7 +16,7 @@ class Work < ApplicationRecord
     not_started: "未着手",
     present:     "出勤",
     absent:      "欠勤",
-    cancelled:   "休講",
+    cancelled:   "休講"
   }.freeze
 
   SEMESTER_LABELS = {
