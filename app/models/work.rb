@@ -3,8 +3,8 @@ class Work < ApplicationRecord
 
   attr_accessor :total_weeks, :second_class_date
 
-  # 未着手: 0, 出勤: 1, 欠勤: 2, 休講: 3, 補講: 4
-  enum :status, { not_started: 0, present: 1, absent: 2, cancelled: 3, makeup: 4 }
+  # 未着手: 0, 出勤: 1, 欠勤: 2, 休講: 3
+  enum :status, { not_started: 0, present: 1, absent: 2, cancelled: 3 }
   enum :start_semester, { start_1Q: 1, start_2Q: 2, start_3Q: 3, start_4Q: 4 }
   enum :end_semester,   { end_1Q: 1, end_2Q: 2, end_3Q: 3, end_4Q: 4 }
 
@@ -17,7 +17,6 @@ class Work < ApplicationRecord
     present:     "出勤",
     absent:      "欠勤",
     cancelled:   "休講",
-    makeup:      "補講"
   }.freeze
 
   SEMESTER_LABELS = {
