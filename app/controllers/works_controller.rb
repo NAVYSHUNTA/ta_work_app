@@ -3,10 +3,20 @@ class WorksController < ApplicationController
   before_action :set_work, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @works = current_user
-      .works
-      .where("class_date >= ?", Date.today)
-      .order(:class_date, :start_period)
+    @works = case params[:range]
+    when "this month"
+      start_date = Time.current.beginning_of_month
+      end_date = Time.current.end_of_month
+      current_user
+        .works
+        .where(class_date: start_date..end_date)
+        .order(:class_date, :start_period)
+    else
+      current_user
+        .works
+        .where("class_date >= ?", Date.today)
+        .order(:class_date, :start_period)
+    end
   end
 
   def show

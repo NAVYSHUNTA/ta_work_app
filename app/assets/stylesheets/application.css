@@ -33,11 +33,10 @@ ul {
     gap: 8px;
 }
 
-#create-item-btn {
+#add-filter-btn {
     position: relative;
-    margin: 10px 0;
-    top: 10px;
-    left: 10px;
+    display: flex;
+    gap: 8px;
 }
 
 #error_explanation, #notice, #alert {
