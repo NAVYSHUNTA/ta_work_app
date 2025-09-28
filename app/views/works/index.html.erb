@@ -12,6 +12,12 @@
   </div>
 <% end %>
 
+<% if @timesheet_submission_due %>
+  <div id="timesheet" class="item">
+    <p>今月の出勤が終わったら、出勤簿を提出してください。</p>
+  </div>
+<% end %>
+
 <div>
   <% if @works.empty? %>
     <p>勤務情報はまだ登録されていません。</p>

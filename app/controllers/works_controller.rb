@@ -3,10 +3,13 @@ class WorksController < ApplicationController
   before_action :set_work, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    start_date = Time.current.beginning_of_month.to_date
+    end_date = Time.current.end_of_month.to_date
+    days_before_month_end = 2.days # 出勤簿の提出が必要なことを月末の数日前から通知するため
+    @timesheet_submission_due = current_user.works.exists?(class_date: start_date..end_date) && Time.current.to_date >= end_date - days_before_month_end
+
     @works = case params[:range]
     when "this month"
-      start_date = Time.current.beginning_of_month
-      end_date = Time.current.end_of_month
       current_user
         .works
         .where(class_date: start_date..end_date)
