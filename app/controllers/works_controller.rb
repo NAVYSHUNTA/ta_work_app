@@ -3,6 +3,7 @@ class WorksController < ApplicationController
   before_action :set_work, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    today = Date.today.to_date
     start_date = Time.current.beginning_of_month.to_date
     end_date = Time.current.end_of_month.to_date
     days_before_month_end = 2.days # 出勤簿の提出が必要なことを月末の数日前から通知するため
@@ -14,10 +15,15 @@ class WorksController < ApplicationController
         .works
         .where(class_date: start_date..end_date)
         .order(:class_date, :start_period)
+    when "from today until end of this month"
+      current_user
+        .works
+        .where(class_date: today..end_date)
+        .order(:class_date, :start_period)
     else
       current_user
         .works
-        .where("class_date >= ?", Date.today)
+        .where("class_date >= ?", today)
         .order(:class_date, :start_period)
     end
   end
