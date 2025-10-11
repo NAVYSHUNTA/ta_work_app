@@ -15,11 +15,6 @@ class WorksController < ApplicationController
         .works
         .where(class_date: start_date..end_date)
         .order(:class_date, :start_period)
-    when "from today until end of this month"
-      current_user
-        .works
-        .where(class_date: today..end_date)
-        .order(:class_date, :start_period)
     else
       current_user
         .works
