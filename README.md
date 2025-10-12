@@ -1,24 +1,19 @@
-# README
+# どんなアプリか？
+大学の SA・TA の業務を補助するアプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 開発のきっかけは？
+現在、出勤簿は紙に記入していますが、作業机が小さい場合、PC と紙を両方とも置くのが困難なため記入しにくい場面があります。
+あるいは何らかの事情で出勤簿を入手できない場合があります。
+このように、出勤簿に記入が困難な場面でも困らないようなアプリが欲しいと思いました。
+他には、授業ごとの補足事項を把握できると嬉しいことがあります。
+例えば、ある授業では、授業開始後に空調効果を高めるためにドアを閉めるといったことを補足事項に記入できると嬉しいです。
+こういった背景から本アプリを開発しました。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 使い方
+ログイン機能があります。
+アカウント作成後、学籍番号とパスワードでログインできます。
+ログイン後に勤務情報を作成します。
+例えば、「プログラミング入門」の TA を週 2 の頻度で行う場合の授業日や場所、時限、学期、補足事項を登録します。
+登録後、出勤・欠勤・休講のどの状態であるか編集ができます。
+また、業務内容を記入することができます。
+このように、継続して利用していると勤務情報が増えていきますが、「今月分を表示」、「今日以降を表示」といったフィルターをかけることができます。
