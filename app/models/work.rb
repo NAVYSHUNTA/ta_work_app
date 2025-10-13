@@ -89,14 +89,7 @@ class Work < ApplicationRecord
   def different_weekdays_for_class_dates
     return if class_date.blank? || second_class_date.blank?
 
-    begin
-      date = class_date.to_date
-      second_date = second_class_date.to_date
-    rescue ArgumentError
-      return
-    end
-
-    if date.wday == second_date.wday
+    if class_date.to_date.wday == second_class_date.to_date.wday
       errors.add(:base, "授業日が同じ曜日になっています（週 2 回の場合は相異なる曜日を選んでください）")
     end
   end
