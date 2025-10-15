@@ -15,6 +15,13 @@ class WorksController < ApplicationController
         .works
         .where(class_date: start_date..end_date)
         .order(:class_date, :start_period)
+    when "last month"
+      start_date = Time.current.prev_month.beginning_of_month.to_date
+      end_date = Time.current.prev_month.end_of_month.to_date
+      current_user
+        .works
+        .where(class_date: start_date..end_date)
+        .order(:class_date, :start_period)
     else
       current_user
         .works

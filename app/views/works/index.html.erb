@@ -2,6 +2,7 @@
 
 <ul id="add-filter-btn">
   <li><%= link_to "新規作成", new_work_path, class: "ghost-btn" %></li>
+  <li><%= button_to "先月分を表示", works_path, class: "ghost-btn", method: :get, params: { range: "last month" } %></li>
   <li><%= button_to "今月分を表示", works_path, class: "ghost-btn", method: :get, params: { range: "this month" } %></li>
   <li><%= button_to "今日以降を表示", works_path, class: "ghost-btn", method: :get, params: { range: "from today" } %></li>
 </ul>
